@@ -3,7 +3,7 @@ cask "birdnion" do
 
   # SHA256 của BirdNion-v0.2.0.zip
   # Tính bằng: shasum -a 256 ~/Desktop/BirdNion-v0.1.1.zip
-  sha256 "e89d24d25ccb78b84854daac6f81ed6296283c120c1840aa6710e4238e06e2ed"
+  sha256 "d45f5e812136c938c845ec2d08cedea87fa4339adc3bfca45701493285bb5d60"
 
   url "https://github.com/hapo-nghialuu/homebrew-tap/releases/download/v#{version}/BirdNion-v#{version}.zip"
   name "BirdNion"
