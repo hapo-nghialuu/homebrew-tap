@@ -17,10 +17,19 @@ cask "birdnion" do
 
   app "BirdNion.app"
 
-  # Ad-hoc signed — recipients need to right-click → Open the first
-  # time to bypass Gatekeeper. (Proper Developer ID notarization is
-  # out of scope until the project has an Apple Developer Program
-  # account.)
+  # Ad-hoc signed, so macOS Gatekeeper blocks the first launch with
+  # "Apple could not verify … is free of malware". Strip the
+  # quarantine flag automatically after the cask copies the app into
+  # /Applications so users don't have to Right-click → Open the
+  # first time. Until we get a Developer ID + notarization, this is
+  # the cleanest free UX we can offer.
+  post_install do
+    system_command "/usr/bin/xattr",
+                  args: ["-dr", "com.apple.quarantine", "#{staged_path}/BirdNion.app"]
+    system_command "/usr/bin/open",
+                  args: ["-a", "#{staged_path}/BirdNion.app"]
+  end
+
   zap trash: [
     "~/Library/Application Support/AIStatusbar",
     "~/Library/Preferences/com.local.aistatusbar.plist",
