@@ -23,11 +23,9 @@ cask "birdnion" do
   # /Applications so users don't have to Right-click → Open the
   # first time. Until we get a Developer ID + notarization, this is
   # the cleanest free UX we can offer.
-  post_install do
+  postflight do
     system_command "/usr/bin/xattr",
                   args: ["-dr", "com.apple.quarantine", "#{staged_path}/BirdNion.app"]
-    system_command "/usr/bin/open",
-                  args: ["-a", "#{staged_path}/BirdNion.app"]
   end
 
   zap trash: [
