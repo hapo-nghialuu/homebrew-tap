@@ -1,7 +1,5 @@
 cask "birdnion" do
-  version "0.3.0"
-  # SHA256 cua BirdNion-0.3.1.zip
-  # Tính bằng: shasum -a 256 ~/Desktop/BirdNion-0.3.0.zip
+  version "0.3.1"
   sha256 "63b97244651db265655003959f445a50da877dc0c5c5efa3fb92f108ef12a7ad"
 
   url "https://github.com/hapo-nghialuu/BirdNion/releases/download/v#{version}/BirdNion-#{version}.zip"
