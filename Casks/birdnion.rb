@@ -1,6 +1,5 @@
 cask "birdnion" do
-  version  "0.3.0"
-
+  version "0.3.0"
   # SHA256 của BirdNion-0.3.0.zip
   # Tính bằng: shasum -a 256 ~/Desktop/BirdNion-0.3.0.zip
   sha256 "1df0f6985dee48f32a07c90c1e9036bc29ef109ceb3f416467c21243f693e820"
@@ -15,6 +14,8 @@ cask "birdnion" do
     strategy :github_latest_release
   end
 
+  depends_on :macos
+
   app "BirdNion.app"
 
   # Ad-hoc signed, so macOS Gatekeeper blocks the first launch with
@@ -25,7 +26,7 @@ cask "birdnion" do
   # the cleanest free UX we can offer.
   postflight do
     system_command "/usr/bin/xattr",
-                  args: ["-dr", "com.apple.quarantine", "#{staged_path}/BirdNion.app"]
+                   args: ["-dr", "com.apple.quarantine", "#{staged_path}/BirdNion.app"]
   end
 
   zap trash: [
