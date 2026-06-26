@@ -16,12 +16,8 @@ cask "birdnion" do
 
   app "BirdNion.app"
 
-  # Ad-hoc signed, so macOS Gatekeeper blocks the first launch with
-  # "Apple could not verify … is free of malware". Strip the
-  # quarantine flag automatically after the cask copies the app into
-  # /Applications so users don't have to Right-click → Open the
-  # first time. Until we get a Developer ID + notarization, this is
-  # the cleanest free UX we can offer.
+  # Ad-hoc signed — strip Gatekeeper quarantine flag so users don't
+  # have to Right-click → Open on first launch.
   postflight do
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", "#{staged_path}/BirdNion.app"]
@@ -31,9 +27,16 @@ cask "birdnion" do
     # BirdNion config + tokens
     "~/.config/birdnion",
     "~/.birdnion",
+    "~/Library/Application Support/BirdNion",
     "~/Library/Preferences/com.local.birdnion.plist",
+    "~/Library/Caches/com.local.birdnion",
+    "~/Library/HTTPStorages/com.local.birdnion",
+    "~/Library/HTTPStorages/com.local.birdnion.binarycookies",
     # Legacy (old app name AIStatusbar — kept for migration cleanup)
     "~/Library/Application Support/AIStatusbar",
     "~/Library/Preferences/com.local.aistatusbar.plist",
+    "~/Library/Caches/com.local.aistatusbar",
+    "~/Library/HTTPStorages/com.local.aistatusbar",
+    "~/Library/HTTPStorages/com.local.aistatusbar.binarycookies",
   ]
 end
