@@ -4,10 +4,10 @@ cask "birdnion" do
   # Tính bằng: shasum -a 256 ~/Desktop/BirdNion-0.3.0.zip
   sha256 "1df0f6985dee48f32a07c90c1e9036bc29ef109ceb3f416467c21243f693e820"
 
-  url "https://github.com/hapo-nghialuu/homebrew-tap/releases/download/v#{version}/BirdNion-#{version}.zip"
+  url "https://github.com/hapo-nghialuu/BirdNion/releases/download/v#{version}/BirdNion-#{version}.zip"
   name "BirdNion"
   desc "AI quota menu bar app — tracks MiniMax, Codex, Claude, Hapo AI Hub and more"
-  homepage "https://github.com/hapo-nghialuu/ai-statusbar"
+  homepage "https://github.com/hapo-nghialuu/BirdNion"
 
   livecheck do
     url :homepage
