@@ -1,5 +1,5 @@
 cask "birdnion" do
-  version "0.2.0"
+  version  "0.3.0"
 
   # SHA256 của BirdNion-0.3.0.zip
   # Tính bằng: shasum -a 256 ~/Desktop/BirdNion-0.3.0.zip
