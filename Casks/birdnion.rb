@@ -1,6 +1,6 @@
 cask "birdnion" do
-  version "0.10.36"
-  sha256 "e86a932f0c879cfc5bfb61197cd307876f781ac3c88c4173381428f8561d5d9f"
+  version "0.10.37"
+  sha256 "dd2c234311ea5aadd5a56b63028aef0f790c57d8f9d7d5201a5400f97fd6d9e7"
 
   url "https://github.com/hapo-nghialuu/BirdNion/releases/download/v#{version}/BirdNion-#{version}.zip"
   name "BirdNion"
@@ -18,9 +18,9 @@ cask "birdnion" do
 
   # Ad-hoc signed — strip Gatekeeper quarantine flag so users don't
   # have to Right-click → Open on first launch.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{staged_path}/BirdNion.app"]
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args: ["-dr", "com.apple.quarantine", "{{staged_path}}/BirdNion.app"]
   end
 
   zap trash: [
